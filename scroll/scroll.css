@@ -1,0 +1,18 @@
+.scroll-content {
+    width: 100%;
+}
+
+.scroll-box {
+    position: absolute;
+    width: 7px;
+    background-color: antiquewhite;
+}
+
+.scroll-tool {
+    position: absolute;
+    width: 100%;
+    left: 0;
+    top: 0;
+    background-color: rgba(0, 0, 0, .4);
+    border-radius: 5px;
+}
