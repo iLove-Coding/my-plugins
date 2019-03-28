@@ -16,7 +16,7 @@ const mySchedule = new SchedulePlugin({
 ```
 
 | 参数 | 说明 |
-| ---- | ---- |
+| :---- | :---- |
 | el|日历容器|
 |clickCb|点击日期回调函数|
 |prevMonthCb|点击上一月回调函数|
