@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="./calendar.css">
+    <style>
+        .item-control {
+            width: 360px;
+            cursor: default;
+            position: fixed;
+            left: 50%;
+            top: 10%;
+            transform: translate(-50%, -50%);
+        }
+
+        .item-control .select-wrap {
+            width: 100%;
+            position: relative;
+        }
+
+        .item-control .select-wrap .title {
+            height: 40px;
+            border: 1px solid rgba(0, 0, 0, 0.14);
+            border-radius: 4px;
+            box-sizing: border-box;
+            padding: 0 10px;
+            line-height: 40px;
+            font-size: 14px;
+            color: rgba(0, 0, 0, 0.36);
+        }
+
+        .item-control .select-wrap .title .text.completed {
+            color: rgba(0, 0, 0, 0.8);
+        }
+
+        .item-control .select-wrap .option {
+            position: absolute;
+            left: 0;
+            top: 45px;
+            width: 100%;
+            background: white;
+            border: 1px solid rgba(0, 0, 0, 0.14);
+            box-sizing: border-box;
+            z-index: 10;
+            display: none;
+        }
+
+        .item-control .select-wrap.folder .option {
+            display: none;
+        }
+
+        .item-control .select-wrap.spread .option {
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <section class="item-control">
+        <div class="select-wrap folder">
+            <div class="title js-select-calendar">
+                <span class="text">请选择时间</span>
+            </div>
+            <div class="option calendar js-option-calendar"></div>
+        </div>
+    </section>
+    <script src="./calendar.js"></script>
+    <script>
+        const $selectControl = document.querySelector('.js-select-calendar');
+        // 自定义下拉框option状态处理
+        function optionHandler($target) {
+            $target = $target.parentNode;
+            if ($target.classList.contains('folder')) {
+                $target.classList.remove('folder');
+                $target.classList.add('spread');
+            } else {
+                $target.classList.remove('spread');
+                $target.classList.add('folder');
+            }
+        }
+        // 日历插件初始化
+        function initSchedule() {
+            const mySchedule = new SchedulePlugin({
+                el: '.js-option-calendar',
+                clickCb: (y, m, d) => {
+                    const selectTime = `${y}-${m}-${d}`;
+                    const $target = document.querySelector('.js-select-calendar .text');
+                    $target.classList.add('completed');
+                    $target.innerText = selectTime;
+                    optionHandler($selectControl);
+                },
+                upDate: `${new Date().getFullYear() + 1}, 11`,
+                noPrevDate: true
+            });
+        }
+        // 事件绑定
+        function bindBtn() {
+            $selectControl.addEventListener('click', function () {
+                optionHandler(this);
+            })
+        }
+        // 初始化
+        function init() {
+            initSchedule();
+            bindBtn();
+        }
+
+        init();
+    </script>
+</body>
+
+</html>

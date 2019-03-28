@@ -1,0 +1,119 @@
+.clearfix {
+    display: block;
+    content: '';
+    clear: both;
+}
+
+.schedule-hd {
+    padding: 20px;
+    height: 22px;
+
+    .show-year {
+        float: left;
+        font-size: 16px;
+        color: #000000;
+        font-weight: 500;
+        letter-spacing: 0.59px;
+
+        span {
+            margin-right: 5px;
+        }
+    }
+
+    .controls {
+        float: right;
+
+        .show-month {
+            font-size: 16px;
+            color: #000000;
+        }
+
+        .arrow-icon {
+            width: 22px;
+            height: 22px;
+            border-radius: 50%;
+
+            &.left {
+                float: left;
+                background: url(/dist/images/calendar/btn_calendar_L.png);
+                background-size: 100% 100%;
+                margin-right: 7px;
+            }
+
+            &.right {
+                float: right;
+                background: url(/dist/images/calendar/btn_calendar_R.png);
+                background-size: 100% 100%;
+                margin-left: 7px;
+            }
+        }
+    }
+}
+
+.week-ul {
+    height: 21px;
+    margin-top: 5px;
+    margin-bottom: 15px;
+
+    li {
+        float: left;
+        width: 14.28%;
+        text-align: center;
+        font-size: 16px;
+        font-weight: 500;
+        line-height: 21px;
+        color: #000000;
+    }
+}
+
+.schedule-bd {
+    padding-bottom: 15px;
+    
+    &::after {
+        .clearfix;
+    }
+
+    li {
+        float: left;
+        width: 14.28%;
+        text-align: center;
+        font-size: 15px;
+        color: rgba(0,0,0,0.60);
+        margin-bottom: 5px;
+
+        &.other-month {
+            color: rgba(0,0,0,0.20);
+        }
+
+        &.current-month {
+            color: rgba(0,0,0,0.60);
+
+            .dayStyle {
+                &:hover {
+                    color: rgba(0,0,0,0.60);
+                    background: rgba(0,0,0,0.09);
+                }
+            }
+        }
+
+        .dayStyle {
+            display: inline-block;
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 28px;
+            cursor: pointer;
+
+            &.today-flag {
+                color: #fff;
+                background: #FF6B23;
+            }
+
+            &.selected-style {
+                background: rgba(0,0,0,0.09);
+            }
+        }
+    }
+}
+
