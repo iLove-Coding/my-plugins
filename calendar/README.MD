@@ -24,4 +24,4 @@ const mySchedule = new SchedulePlugin({
 |upDate|日期展示上限，'年,月'|
 |noPrevDate|是否可选今天之前的时间|
 
-在线展示
+[在线展示](https://htmlpreview.github.io/?https://github.com/iLove-Coding/my-plugins/blob/master/calendar/demo.html)
