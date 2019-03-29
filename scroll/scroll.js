@@ -2,7 +2,7 @@
     class AutoScroll {
         constructor(obj) {
             this.obj = obj;
-            this.linkUrl = './scroll.css';
+            // this.linkUrl = './scroll.css';
             //滚动内容
             this.scrollContent = null;
             //滚动条元素
@@ -25,12 +25,12 @@
             }
 
             //在head标签中引入css样式
-            let link = document.createElement('link');
-            link.href = this.linkUrl;
-            link.rel = "stylesheet";
-            link.setAttribute('id', '#scrollStyle');
-            let head = document.querySelector('head');
-            head.appendChild(link);
+            // let link = document.createElement('link');
+            // link.href = this.linkUrl;
+            // link.rel = "stylesheet";
+            // link.setAttribute('id', '#scrollStyle');
+            // let head = document.querySelector('head');
+            // head.appendChild(link);
 
             //创建滚动结构条件
             let h1 = this.obj.clientHeight;
