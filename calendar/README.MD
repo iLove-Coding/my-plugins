@@ -1,4 +1,4 @@
-### 原生 js 日历插件
+### 原生js日历插件
 
 SchedulePlugin
 

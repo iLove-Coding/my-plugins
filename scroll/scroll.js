@@ -109,13 +109,15 @@
             //chrome--event.wheelDelta, >0为鼠标滚轮向上滚动，<0为向下滚动
             this.obj.onmousewheel = (event) => {
                 let oEvent = event || window.event;
+                oEvent.preventDefault();
                 oEvent.wheelDelta > 0 ? this.up() : this.down();
             }
 
             //firefox--event.detail,>0为鼠标向下滚动，<0为向上滚动
-            this.obj.addEventListener("DOMMouseScroll", (event) => {
+            document.addEventListener('DOMMouseScroll', (event) => {
                 let oEvent = event || window.event;
-                oEvent.wheelDelta > 0 ? this.down() : this.up();
+                oEvent.preventDefault();
+                oEvent.detail > 0 ? this.down() : this.up();
             })
         }
 
