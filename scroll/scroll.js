@@ -2,7 +2,7 @@
     class AutoScroll {
         constructor(obj) {
             this.obj = obj;
-            this.linkUrl = 'module/scroll/scroll.css';
+            this.linkUrl = './scroll.css';
             //滚动内容
             this.scrollContent = null;
             //滚动条元素
